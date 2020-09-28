@@ -1,0 +1,26 @@
+
+  
+  .sidebar-nav a {
+    display: block;
+    margin-bottom: 6px;
+    text-decoration: none;
+    color: #666;
+    font-size: 16px;
+    padding: 14px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+.sidebar-nav a:hover {
+  background: rgb(240, 240, 240);
+}
+.sidebar-nav a:focus {
+  background: rgba(#0084a8, .1);
+  color: #059ec9;
+
+}
+.sidebar-nav a.active {
+  // color: #000000;
+  background: rgba(#0084a8, .1);
+  color: #0084a8;
+}
+  

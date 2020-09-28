@@ -1,0 +1,46 @@
+
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-menu {
+    margin: 0 20px;
+    display: flex;
+    a {
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #000000;
+        &:hover svg{
+            color: #12b8e6;
+        }
+    }
+    svg {
+        font-size: 25px;
+        margin-right: 4px;
+         
+    }
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+  }
+  
+  .app-logo{
+    /* max-width: 80px; */
+    max-width: 45px;
+    /* height: auto; */
+    /* height: 40px; */
+    margin-right: 5px;
+  } 
+  .app-link {
+    color: #12b8e6;
+    color: #000;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+  }
