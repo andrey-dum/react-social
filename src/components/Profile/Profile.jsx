@@ -6,10 +6,8 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 
-function Profile ({state}) {
-  
-  console.log(state)
-  
+function Profile ({state, dispatch}) {
+ 
   return (
     <div className="profile">
 
@@ -17,7 +15,7 @@ function Profile ({state}) {
 
             <ProfileInfo />
 
-            <MyPosts posts={state.posts} />
+            <MyPosts state={state} posts={state.posts} dispatch={dispatch}/>
 
         </div>
 

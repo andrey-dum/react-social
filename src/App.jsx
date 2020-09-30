@@ -13,7 +13,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 
 
 
-function App({state}) {
+function App({state, dispatch}) {
 
   return (
     <div className="app">
@@ -25,7 +25,7 @@ function App({state}) {
           {/* <Route  path='/dialogs' component={Dialogs}/> */}
           <Route  path='/dialogs'render={ () => <Dialogs state={state.dialogsPage} /> } />
           
-          <Route exact path='/profile' render={ () => <Profile state={state.profilePage} /> } />
+          <Route exact path='/profile' render={ () => <Profile state={state.profilePage} dispatch={dispatch} /> } />
         </Switch>
       </div>
     
