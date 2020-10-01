@@ -13,7 +13,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 
 
 
-function App({state, dispatch}) {
+function App({state, dispatch, store}) {
 
   return (
     <div className="app">
@@ -23,7 +23,7 @@ function App({state, dispatch}) {
         <Switch>
           {/* <Route exact path='/' component={Profile}/> */}
           {/* <Route  path='/dialogs' component={Dialogs}/> */}
-          <Route  path='/dialogs'render={ () => <Dialogs state={state.dialogsPage} /> } />
+          <Route  path='/dialogs'render={ () => <Dialogs state={state.dialogsPage}  store={store} /> } />
           
           <Route exact path='/profile' render={ () => <Profile state={state.profilePage} dispatch={dispatch} /> } />
         </Switch>

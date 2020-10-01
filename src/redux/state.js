@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT'
 
 let store = {
   _state: {
@@ -23,6 +25,7 @@ let store = {
     },
  
    dialogsPage: {
+    NewMessageText: '',
      dialogs: [
        { uid: 1, name: 'Sancho' },
        { uid: 2, name: 'Android' },
@@ -80,6 +83,18 @@ let store = {
     if (action.type === 'GET_POSTS') {
       return this._state.profilePage.posts;
     }
+
+
+    if (action.type === ADD_MESSAGE) {
+      let msg = this._state.dialogsPage.NewMessageText;
+      this._state.dialogsPage.messages.push({id: 12, message: msg});
+      this._state.dialogsPage.NewMessageText = '';
+      this._callSubscriber(this._state)
+    }
+    if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+      this._state.dialogsPage.NewMessageText = action.NewMessageText;
+      this._callSubscriber(this._state)
+    }
   }
  
 }
@@ -87,9 +102,26 @@ let store = {
 
 
 export const addPostActionCreator = () => ({ type: ADD_POST });
-export const updateNewPostText = (text) => ({ 
+
+export const updateNewPostText = (text) => (
+  { 
     type: UPDATE_NEW_POST_TEXT, 
-    NewPosttext: text });
+    NewPosttext: text 
+  }
+);
   
+export const addMessageActionCreator = () => (
+  { 
+    type: ADD_MESSAGE,
+  }
+  );
+
+
+
+export const updateNewMessageTextActionCreator = (text) => (
+  { 
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  NewMessageText: text,
+});
   
 export default store;
