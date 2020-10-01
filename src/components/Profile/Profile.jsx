@@ -7,7 +7,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 function Profile ({state, dispatch}) {
- 
+
   return (
     <div className="profile">
 

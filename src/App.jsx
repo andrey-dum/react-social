@@ -14,7 +14,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 
 
 function App({state, dispatch, store}) {
-
+console.log(dispatch)
   return (
     <div className="app">
       <Header />
@@ -25,7 +25,7 @@ function App({state, dispatch, store}) {
           {/* <Route  path='/dialogs' component={Dialogs}/> */}
           <Route  path='/dialogs'render={ () => <Dialogs state={state.dialogsPage}  store={store} /> } />
           
-          <Route exact path='/profile' render={ () => <Profile state={state.profilePage} dispatch={dispatch} /> } />
+          <Route exact path='/profile' render={ () => <Profile state={state.profilePage} dispatch={dispatch} store={store}/> } />
         </Switch>
       </div>
     

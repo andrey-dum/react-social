@@ -7,7 +7,7 @@ import { addPostActionCreator, updateNewPostText } from '../../../redux/profileR
 
 
 function MyPosts ({state, posts, dispatch}) {
-
+ 
   const textarea = React.createRef();
   
   const onAddPost = () => {
