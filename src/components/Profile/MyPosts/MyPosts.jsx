@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './Post/Post';
-import { addPostActionCreator, updateNewPostText } from '../../../redux/state';
+import { addPostActionCreator, updateNewPostText } from '../../../redux/profileReducer';
 
 //import './index.scss';
 
@@ -18,7 +18,9 @@ function MyPosts ({state, posts, dispatch}) {
     let text = textarea.current.value;
     dispatch(updateNewPostText(text));
   }
-
+  // function compareNumbers(a, b) {
+  //   return a - b;
+  // }
   return (
     <div className="posts box">
         <div className="new-post">

@@ -6,7 +6,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 import DialogItem from './DialogItem';
 import Message from './Message';
-import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/state';
+import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
 
 
 
