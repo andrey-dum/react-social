@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
+
 let store = {
   _state: {
 
@@ -65,12 +68,12 @@ let store = {
       text: this._state.profilePage.NewPosttext,
       likes: 121341
       }
-    if (action.type === 'ADD_POST') {
+    if (action.type === ADD_POST) {
       this._state.profilePage.posts.push(New)
       this._state.profilePage.NewPosttext = '';
       this._callSubscriber(this._state)
     }
-    if (action.type === 'UPDATE_NEW_POST_TEXT') {
+    if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.NewPosttext = action.NewPosttext;
       this._callSubscriber(this._state)
     }
@@ -83,9 +86,10 @@ let store = {
 
 
 
-export const actions = {
-    
-}
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const updateNewPostText = (text) => ({ 
+    type: UPDATE_NEW_POST_TEXT, 
+    NewPosttext: text });
   
   
 export default store;
