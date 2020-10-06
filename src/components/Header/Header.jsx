@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './index.scss';
 
-import { MdFace, MdExitToApp } from "react-icons/md";
+import { MdFace } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 
 

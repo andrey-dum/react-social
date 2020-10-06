@@ -13,7 +13,7 @@ import Message from './Message';
 function Dialogs ({state, updateMessage, addMessage}) {
     const empty = true;
 
-    let isEmptyMessage = state.NewMessageText == '' ? true : false
+    let isEmptyMessage = state.NewMessageText === '' ? true : false
 
     const onUpdateMessage = (e) =>  {
       let msg = e.target.value;

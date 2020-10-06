@@ -14,7 +14,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 
-function App({state, dispatch, store}) {
+function App() {
 
   return (
     <div className="app">
@@ -26,10 +26,10 @@ function App({state, dispatch, store}) {
           {/* <Route  path='/dialogs' component={Dialogs}/> */}
 
   
-          <Route  path='/dialogs' render={ () => <DialogsContainer store={store} state={state.dialogsPage} /> } />
+          <Route  path='/dialogs' render={ () => <DialogsContainer /> } />
           {/* <Route  path='/dialogs' render={ () => <Dialogs state={state.dialogsPage}  store={store} /> } /> */}
           
-          <Route exact path='/profile' render={ () => <Profile state={state.profilePage} dispatch={dispatch} store={store}/> } />
+          <Route exact path='/profile' render={ () => <Profile /> } />
         </Switch>
       </div>
     
