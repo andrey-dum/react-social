@@ -8,17 +8,17 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 import store from './redux/redux-store';
-import StoreContext from './context/StoreContext';
+import { Provider } from './context/StoreContext';
 
 let renderEntireTree = (state) => {
 
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-      <StoreContext.Provider value={store}>
+      <Provider store={store}>
         {/* <App state={state} dispatch={store.dispatch.bind(store)} store={store} /> */}
         <App  />
-        </StoreContext.Provider>
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
