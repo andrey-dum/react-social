@@ -10,11 +10,12 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 
 function App({state, dispatch, store}) {
-console.log(dispatch)
+
   return (
     <div className="app">
       <Header />
@@ -23,7 +24,10 @@ console.log(dispatch)
         <Switch>
           {/* <Route exact path='/' component={Profile}/> */}
           {/* <Route  path='/dialogs' component={Dialogs}/> */}
-          <Route  path='/dialogs'render={ () => <Dialogs state={state.dialogsPage}  store={store} /> } />
+
+  
+          <Route  path='/dialogs' render={ () => <DialogsContainer store={store} state={state.dialogsPage} /> } />
+          {/* <Route  path='/dialogs' render={ () => <Dialogs state={state.dialogsPage}  store={store} /> } /> */}
           
           <Route exact path='/profile' render={ () => <Profile state={state.profilePage} dispatch={dispatch} store={store}/> } />
         </Switch>

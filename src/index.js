@@ -10,7 +10,6 @@ import * as serviceWorker from './serviceWorker';
 import store from './redux/redux-store';
 
 let renderEntireTree = (state) => {
-  console.log(store)
 
   ReactDOM.render(
     <React.StrictMode>

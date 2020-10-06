@@ -6,19 +6,19 @@ import { addPostActionCreator, updateNewPostText } from '../../../redux/profileR
 
 
 
-function MyPosts ({state, posts, dispatch}) {
+function MyPosts ({state, posts, addPost, updatePost}) {
  
   const textarea = React.createRef();
   
   const onAddPost = () => {
-    dispatch(addPostActionCreator());
+    addPost()
   }
 
   const onUpdatePost = () => {
     let text = textarea.current.value;
-    dispatch(updateNewPostText(text));
+    updatePost(text)
   }
-  // function compareNumbers(a, b) {
+  // function compare(a, b) {
   //   return a - b;
   // }
   return (

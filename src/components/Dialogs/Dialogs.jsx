@@ -6,23 +6,22 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 import DialogItem from './DialogItem';
 import Message from './Message';
-import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
+// import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
 
 
 
-function Dialogs ({state, store}) {
+function Dialogs ({state, updateMessage, addMessage}) {
     const empty = true;
 
-    const st = store.getState();
-    let isEmptyMessage = st.dialogsPage.NewMessageText == '' ? true : false
+    let isEmptyMessage = state.NewMessageText == '' ? true : false
 
     const onUpdateMessage = (e) =>  {
       let msg = e.target.value;
-      store.dispatch(updateNewMessageTextActionCreator(msg))
+      updateMessage(msg)
     }
 
     const onAddMessageClick = ()=>  {
-      store.dispatch(addMessageActionCreator())
+      addMessage()
     }
 
   return (
@@ -72,7 +71,7 @@ function Dialogs ({state, store}) {
 
               <div className="chat-textarea">
               
-                <textarea onChange={ onUpdateMessage } value={st.dialogsPage.NewMessageText} required /> 
+                <textarea onChange={ onUpdateMessage } value={state.NewMessageText} required /> 
                 <div className="btn-wrap">
                   <button className="button" disabled={isEmptyMessage} onClick={ onAddMessageClick } >Send</button>
                  </div>
