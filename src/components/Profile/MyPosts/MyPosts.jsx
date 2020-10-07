@@ -6,8 +6,9 @@ import Post from './Post/Post';
 
 
 
-function MyPosts ({state, posts, addPost, updatePost}) {
- 
+function MyPosts ({posts, addPost, updatePost, NewPosttext}) {
+
+  
   const textarea = React.createRef();
   
   const onAddPost = () => {
@@ -26,9 +27,9 @@ function MyPosts ({state, posts, addPost, updatePost}) {
         <div className="new-post">
                 <h3>Создать публикацию </h3>
             <div className="textarea-wrap">
-                <textarea ref={textarea} onChange={onUpdatePost} value={state.NewPosttext} placeholder="Что у вас нового?" name="" id="" cols="70" rows="5"></textarea>
+                <textarea ref={textarea} onChange={onUpdatePost} value={NewPosttext} placeholder="Что у вас нового?" name="" id="" cols="70" rows="5"></textarea>
             </div>
-            <div>{state.NewPosttext}</div> 
+            <div>{NewPosttext}</div> 
             <div className="btn-wrap">
             <button className="button" onClick={onAddPost}>Опубликовать</button>
             </div>

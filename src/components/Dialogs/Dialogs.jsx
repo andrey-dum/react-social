@@ -10,18 +10,20 @@ import Message from './Message';
 
 
 
-function Dialogs ({state, updateMessage, addMessage}) {
+function Dialogs ({dialogsPage, updateMessage, sendMessage}) {
+
     const empty = true;
 
-    let isEmptyMessage = state.NewMessageText === '' ? true : false
+    let isEmptyMessage = dialogsPage.NewMessageText === '' ? true : false
 
     const onUpdateMessage = (e) =>  {
       let msg = e.target.value;
       updateMessage(msg)
+      console.log(msg)
     }
 
     const onAddMessageClick = ()=>  {
-      addMessage()
+      sendMessage()
     }
 
   return (
@@ -45,7 +47,7 @@ function Dialogs ({state, updateMessage, addMessage}) {
               </div>
 
               {
-                state.dialogs.map(d => <DialogItem key={d.uid} name={d.name} uid={d.uid} />)
+                dialogsPage.dialogs.map(d => <DialogItem key={d.uid} name={d.name} uid={d.uid} />)
               }
               
           </div>
@@ -63,7 +65,7 @@ function Dialogs ({state, updateMessage, addMessage}) {
                     <Message message='Hello!!!' />
                   </div> */}
                 
-                   { state.messages.map( msg =>  (<div><Message key={msg.id}  message={msg.message} /></div>) ) }
+                   { dialogsPage.messages.map( msg =>  (<div><Message key={msg.id}  message={msg.message} /></div>) ) }
                    
               </div>
 
@@ -71,7 +73,7 @@ function Dialogs ({state, updateMessage, addMessage}) {
 
               <div className="chat-textarea">
               
-                <textarea onChange={ onUpdateMessage } value={state.NewMessageText} required /> 
+                <textarea onChange={ onUpdateMessage } value={dialogsPage.NewMessageText} required /> 
                 <div className="btn-wrap">
                   <button className="button" disabled={isEmptyMessage} onClick={ onAddMessageClick } >Send</button>
                  </div>
