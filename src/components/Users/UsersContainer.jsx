@@ -2,7 +2,7 @@ import React from 'react';
 
 import { followActionCreator, unfollowActionCreator, setUsersAC } from '../../redux/usersReducer';
 import { connect } from 'react-redux';
-import Users from './Users';
+import Users from './UsersСС';
 
 
 

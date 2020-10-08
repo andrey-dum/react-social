@@ -1,38 +1,51 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './index.scss';
 import { MdPublic } from "react-icons/md";
 import * as axios from 'axios';
 
 import profilePhoto from '../../assets/images/profile_noimage.png'
 
-const Users = ({users, follow, unfollow, setUsers}) => {
-    
-       
-    if ( users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                console.log(response.data.items)
-                setUsers(response.data.items)
-            })
-        
-       } 
-       
-     
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
 
-    
-
-    const onFollow = (userId) => {
-        follow(userId)
+        if ( this.props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    console.log(response.data.items)
+                    this.props.setUsers(response.data.items)
+                })
+            
+        }
     }
 
-    const onUnfollow = (userId) => {
-        unfollow(userId)
+   
+
+    // getUsers = () => {
+    //     if ( this.props.users.length === 0) {
+    //         axios.get('https://social-network.samuraijs.com/api/1.0/users')
+    //             .then(response => {
+    //                 console.log(response.data.items)
+    //                 this.props.setUsers(response.data.items)
+    //             })
+            
+    //     } 
+    // }
+
+    onFollow = (userId) => {
+        this.props.follow(userId)
+        console.log('Add friend')
     }
-    
-    return (
-        <div className="users box">
-            <div className="users__list">
-                {  users.map(u => (
+
+    onUnfollow = (userId) => {
+        this.props.unfollow(userId)
+    }
+
+    render() {
+        return ( 
+            <div className="users box">
+                <div className="users__list">
+                {  this.props.users.map(u => (
                     <div key={u.id} className="user__item">
                         <div className="user__avatar"><img src={u.photos.small ? u.photos.small : profilePhoto } alt={u.name} className=""/></div>
                         <div className="user__info">
@@ -44,8 +57,8 @@ const Users = ({users, follow, unfollow, setUsers}) => {
                             
 
                             { u.followed 
-                                ? <div className="unfollow" onClick={() => onUnfollow(u.id)}>Unfollow</div> 
-                                : <div className="follow" onClick={() => onFollow(u.id)}>Follow</div> }
+                                ? <div className="unfollow" onClick={() => this.onUnfollow(u.id)}>Unfollow</div> 
+                                : <div className="follow" onClick={() => this.onFollow(u.id)}>Follow</div> }
                             
                         </div>
                         
@@ -65,9 +78,10 @@ const Users = ({users, follow, unfollow, setUsers}) => {
                 
             </div>
         </div>
-    )
+        )
+        
+    }
 }
-
   
 
 export default Users;
