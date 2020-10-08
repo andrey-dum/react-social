@@ -22,8 +22,8 @@ function Header () {
             </Link> 
         </div>
         <div className="header-menu">
-          <a href="#"><MdFace />Account</a>
-          <a href="#"><AiOutlineLogout />Logout</a>
+          <a href="/"><MdFace />Account</a>
+          <a href="/"><AiOutlineLogout />Logout</a>
         </div>
       </header>
 
