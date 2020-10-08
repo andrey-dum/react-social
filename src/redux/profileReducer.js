@@ -28,10 +28,6 @@ const profileReducer = (state=initialState, action) => {
               text: state.NewPosttext,
               likes: 121341
               }
-          // let copyState = {...state}
-          // copyState.posts = [...state.posts]
-          // copyState.posts.push(New)
-          // copyState.NewPosttext = '';
           return {
             ...state,
             posts: [...state.posts, New],
@@ -40,15 +36,11 @@ const profileReducer = (state=initialState, action) => {
         }
 
         case UPDATE_NEW_POST_TEXT: {
-          // let copyState = {...state}
-          // copyState.NewPosttext = action.NewPosttext;
           return {
             ...state,
             NewPosttext: action.NewPosttext
           };
         }
-        // case 'GET_POSTS':   
-        //     return state.posts;
 
         default:
             return state;

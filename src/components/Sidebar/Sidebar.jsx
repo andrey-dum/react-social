@@ -24,6 +24,10 @@ function Sidebar () {
       <Link to='#'>Друзья</Link>
       <Link to="#">Новости</Link>
       <Link to="#">Настройки</Link>
+
+     <hr />
+
+      <Link to="/users">Найти друзей</Link>
       
     </nav>
 

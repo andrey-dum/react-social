@@ -9,8 +9,9 @@ import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
-import Dialogs from './components/Dialogs/Dialogs';
+
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 
@@ -22,14 +23,14 @@ function App() {
       <Sidebar />
       <div className="main-content">
         <Switch>
-          {/* <Route exact path='/' component={Profile}/> */}
-          {/* <Route  path='/dialogs' component={Dialogs}/> */}
-
   
           <Route  path='/dialogs' render={ () => <DialogsContainer /> } />
-          {/* <Route  path='/dialogs' render={ () => <Dialogs state={state.dialogsPage}  store={store} /> } /> */}
           
           <Route exact path='/profile' render={ () => <Profile /> } />
+
+          <Route path='/users' render={ () => <UsersContainer /> } />
+
+
         </Switch>
       </div>
     
