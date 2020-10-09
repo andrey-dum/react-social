@@ -84,3 +84,25 @@
     margin: 40px 0; 
     text-align: center;
 }
+
+
+.users .pagination {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    span {
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    .active {
+       font-weight: bold;
+       border-radius: 50%;
+       background: #cccccc;
+       padding: 2px 9px;
+    }
+}
+
+.UserLoader {
+    padding: 0 30px;
+    overflow: hidden;
+}

@@ -1,18 +1,17 @@
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+
 
 
 const initialState = {
-    users: [
-    //    { id: 1, followed: false, name: 'Sancho', status: 'Hello, bro', location: {city: 'Minsk', country: 'Belarus'}, img: 'https://olympus.crumina.net/wp-content/uploads/avatars/9/5c34850901fc7-bpthumb.jpg'},
-    //    { id: 2, followed: true, name: 'Android', status: 'I want to learn react', location: {city: 'Kyiv', country: 'Ukraine'}, img: 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'},
-    //    { id: 3, followed: false, name: 'Armen', status: 'I search job', location: {city: 'London', country: 'England'}, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQHCZuslFbn42wwA9qw6ywBERhtpr_yOFy3Cw&usqp=CAU'},
-    //    { id: 4, followed: true, name: 'Aligator', status: 'Who want play football tomorrow', location: {city: 'NewYork', country: 'USA'}, img: 'https://i.pinimg.com/originals/17/56/8f/17568fcd478e0699067ca7b9a34c702f.png'},
-    //    { id: 5, followed: false, name: 'Red', status: 'Go to mountains next week!!!', location: {city: 'Barcelona', country: 'Spain'}, img: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/grinning-face_1f600.png'},
-    ],
-    show: 4,
-    
+    users: [],
+    pageSize: 10,
+    totalUsersCount: 0,
+    currentPage: 1,
+
     
 }
 
@@ -58,9 +57,21 @@ const usersReducer = (state=initialState, action) => {
           case SET_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.users],
-                // users: [...action.users],
+                //users: [...state.users, ...action.users], add in the end
+                users: action.users, // clear old and add new users
           }
+
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.currentPage,
+        }
+
+        case SET_TOTAL_USERS_COUNT:
+            return {
+                ...state,
+                totalUsersCount: action.totalCount,
+        }
 
         default:
           return state;
@@ -68,11 +79,11 @@ const usersReducer = (state=initialState, action) => {
     }
     
     
-    export const setUsersAC = (users) => ({ 
-            type: SET_USERS,
-            users,
-           }
-    );
+export const setUsersAC = (users) => ({ 
+    type: SET_USERS,
+    users,
+     }
+);
     
 
 
@@ -89,6 +100,17 @@ export const unfollowActionCreator = (userId) => ({
         payload: {
             userId
         }
+    }
+);
+
+export const setCurrentPageAC = (currentPage) => ({ 
+    type: SET_CURRENT_PAGE,
+    currentPage
+    }
+);
+export const setTotalUsersCountAC = (totalCount) => ({ 
+    type: SET_TOTAL_USERS_COUNT,
+    totalCount
     }
 );
 
