@@ -85,15 +85,16 @@ const usersReducer = (state=initialState, action) => {
     }
     
     
-export const setUsersAC = (users) => ({ 
+
+
+//AC
+export const setUsers = (users) => ({ 
     type: SET_USERS,
     users,
      }
 );
-    
 
-
-export const followActionCreator = (userId) => (
+export const follow = (userId) => (
     { 
         type: FOLLOW,
         userId
@@ -101,7 +102,7 @@ export const followActionCreator = (userId) => (
     }
 );
 
-export const unfollowActionCreator = (userId) => ({ 
+export const unfollow = (userId) => ({ 
         type: UNFOLLOW,
         payload: {
             userId
@@ -109,24 +110,24 @@ export const unfollowActionCreator = (userId) => ({
     }
 );
 
-export const setCurrentPageAC = (currentPage) => ({ 
+export const setCurrentPage = (currentPage) => ({ 
     type: SET_CURRENT_PAGE,
     currentPage
     }
 );
-export const setTotalUsersCountAC = (totalCount) => ({ 
+export const setTotalUsersCount = (totalCount) => ({ 
     type: SET_TOTAL_USERS_COUNT,
     totalCount
     }
 );
-export const toggleIsFetchingtAC = (isFetching) => ({ 
+export const toggleIsFetching = (isFetching) => ({ 
     type: TOGGLE_IS_FETCHING,
     isFetching
     }
 );
 
 // export const deleteUserctionCreator = (id) => ({ 
-//     type: DEELETE,
+//     type: DELETE,
 //     payload: id
 // }
 // );
