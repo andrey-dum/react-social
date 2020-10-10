@@ -3,7 +3,7 @@ import "./index.scss";
 import { MdPublic } from "react-icons/md";
 
 import profilePhoto from "../../assets/images/profile_noimage.png";
-import UserLoader from "./UserLoader";
+
 
 function Users(props) {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -16,7 +16,7 @@ function Users(props) {
   }
 
   return (
-    <div className="users box">
+    <div className="users">
       <div className="pagination">
         {pages.map(p => (
           <span
@@ -28,7 +28,7 @@ function Users(props) {
         ))}
       </div>
       <div className="users__list">
-        {props.users.length !== 0 &&
+        {
           props.users.map(u => (
             <div key={u.id} className="user__item">
               <div className="user__avatar">
@@ -67,10 +67,7 @@ function Users(props) {
                         </div> */}
             </div>
           ))}
-        {props.users.length === 0 &&
-          Array(5)
-            .fill(0)
-            .map((_, index) => <UserLoader />)}
+       
 
         <div className="users__showMore">
           <button className="button">Show More</button>
