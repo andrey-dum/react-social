@@ -6,14 +6,14 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 
 
-function Profile () {
+function Profile ({profile}) {
 
   return (
     <div className="profile">
 
         <div className="profile__user">
 
-            <ProfileInfo />
+            <ProfileInfo profile={profile} />
 
             {/* <MyPosts state={state} posts={state.posts} dispatch={dispatch}/> */}
             <MyPostsContainer  />

@@ -7,11 +7,12 @@ import './App.scss';
 
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
-import Profile from './components/Profile/Profile';
+// import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 
@@ -26,8 +27,8 @@ function App() {
   
           <Route  path='/dialogs' render={ () => <DialogsContainer /> } />
           
-          <Route exact path='/profile' render={ () => <Profile /> } />
-          <Route exact path='/' render={ () => <Profile /> } />
+          <Route path='/profile' render={ () => <ProfileContainer /> } />
+          {/* <Route path='/' render={ () => <Profile/> } /> */}
 
           <Route path='/users' render={ () => <UsersContainer /> } />
 

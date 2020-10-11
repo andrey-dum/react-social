@@ -2,7 +2,11 @@ import React from 'react';
 
 //import './index.scss';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({profile}) => {
+    if(!profile) {
+        return <div><h1>Loading</h1></div>
+    }
+    console.log(profile)
     return (
         <div className="profile__info-wrapper box">
             <div className="profile-cover">
@@ -11,11 +15,12 @@ const ProfileInfo = () => {
 
             <div className="profile-meta">
                 <div className="profile-photo">
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/grinning-face_1f600.png" alt="" className="profile__img"/>
+                    <img src={profile.photos.large} />
                 </div>
                 <div className="profile-info">
-                    <h2 className="profile-name">Andrey Dum</h2>
-                    <div>web-development, design, branding, 3d-visualization</div>
+                    <h2 className="profile-name">{profile.fullName}</h2>
+                    <div>{profile.aboutMe}</div>
+                    {/* <div>web-development, design, branding, 3d-visualization</div> */}
                     <div>Date: 20.08.1992</div>
                     <div>City: Kyiv</div>
                     <div>Website: site.com</div>
