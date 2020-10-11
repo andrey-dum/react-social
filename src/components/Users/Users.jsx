@@ -20,6 +20,7 @@ function Users(props) {
       <div className="pagination">
         {pages.map(p => (
           <span
+            key={p}
             onClick={() => props.onPageChange(p)}
             className={props.currentPage === p ? "active" : ""}
           >

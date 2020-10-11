@@ -27,7 +27,8 @@ function App() {
   
           <Route  path='/dialogs' render={ () => <DialogsContainer /> } />
           
-          <Route path='/profile' render={ () => <ProfileContainer /> } />
+          <Route path='/profile/:id?' component={ProfileContainer} /> 
+          {/* <Route path='/profile' render={ () => <ProfileContainer /> } /> */}
           {/* <Route path='/' render={ () => <Profile/> } /> */}
 
           <Route path='/users' render={ () => <UsersContainer /> } />

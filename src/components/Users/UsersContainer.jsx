@@ -64,7 +64,7 @@ class UsersContainer extends React.Component {
               { this.props.isFetching &&
                 Array(5)
                 .fill(0)
-                .map((_, index) => <UserLoader />)}
+                .map((_, index) => <UserLoader key={index} />)}
               
             </div>
     );
