@@ -5,14 +5,13 @@ import { Switch, Route } from 'react-router-dom'
 
 import './App.scss';
 
-import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
-// import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 
@@ -20,7 +19,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <HeaderContainer />
       <Sidebar />
       <div className="main-content">
         <Switch>

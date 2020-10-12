@@ -9,7 +9,7 @@ import { MdFace } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 
 
-function Header () {
+function Header ({login, isAuth}) {
   return (
     <div className="header box">
       <header className="app-header">
@@ -22,8 +22,11 @@ function Header () {
             </Link> 
         </div>
         <div className="header-menu">
-          <a href="/"><MdFace />Account</a>
-          <a href="/"><AiOutlineLogout />Logout</a>
+        { isAuth 
+          ? <a href="/"><MdFace />{login}</a>
+          : <a href="/"><MdFace />Sig In</a> }
+          {/* <a href="/"><AiOutlineLogout />Logout</a> */}
+         
         </div>
       </header>
 
