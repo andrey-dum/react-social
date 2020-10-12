@@ -13,10 +13,8 @@ class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
    
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
+    axios.get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`) //add { withCredentials: true }
       .then(response => {
         this.props.setUsers(response.data.items);
         this.props.toggleIsFetching(false);
@@ -26,11 +24,38 @@ class UsersContainer extends React.Component {
   }
   
   onFollow = userId => {
+
+    // axios.post(
+    //     `https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
+    //       withCredentials: true,
+    //       // header: {
+    //       //   "API_KEY": 'insert api key there'
+    //       // }
+    //     })
+    //     .then(response => {
+    //       if (response.data.resultCode === 0) {
+    //         this.props.follow(userId);
+    //       }
+    //   });
+
     this.props.follow(userId);
  
   };
 
   onUnfollow = userId => {
+    // axios.delete(
+    //     `https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {
+    //       withCredentials: true,
+    //       // header: {
+    //       //   "API_KEY": 'insert api key there'
+    //       // }
+    //     })
+    //     .then(response => {
+    //       if (response.data.resultCode === 0) {
+    //         this.props.unfollow(userId);
+    //       }
+    //   });
+
     this.props.unfollow(userId);
   };
 
@@ -40,8 +65,7 @@ class UsersContainer extends React.Component {
     
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageN}&count=${this.props.pageSize}`
-      )
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageN}&count=${this.props.pageSize}`) //add { withCredentials: true }
       .then(response => {
         this.props.setUsers(response.data.items);
         this.props.toggleIsFetching(false);

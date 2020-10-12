@@ -9,7 +9,8 @@ import { MdFace } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 
 
-function Header ({login, isAuth}) {
+function Header ({login, isAuth, profile}) {
+  // console.log(profile)
   return (
     <div className="header box">
       <header className="app-header">
