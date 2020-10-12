@@ -47,17 +47,21 @@ function Users(props) {
               </div>
 
               <div className="user__followButtons">
+             
                 {u.followed ? (
-                  <div
+                  <button
+                    disabled={props.followingInProgress.some(id => id === u.id)}
                     className="unfollow"
                     onClick={() => props.onUnfollow(u.id)}
                   >
                     Unfollow
-                  </div>
+                  </button>
                 ) : (
-                  <div className="follow" onClick={() => props.onFollow(u.id)}>
+                  <button 
+                    disabled={props.followingInProgress.some(id => id === u.id)}
+                    className="follow" onClick={() => props.onFollow(u.id)}>
                     Follow
-                  </div>
+                  </button>
                 )}
               </div>
 
