@@ -3,6 +3,7 @@ import React from 'react';
 
 import './index.scss';
 import { FaRegPaperPlane } from "react-icons/fa";
+import { Redirect } from "react-router-dom";
 
 import DialogItem from './DialogItem';
 import Message from './Message';
@@ -10,7 +11,7 @@ import Message from './Message';
 
 
 
-function Dialogs ({dialogsPage, updateMessage, sendMessage}) {
+function Dialogs ({dialogsPage, updateMessage, sendMessage, isAuth}) {
 
     const empty = true;
 
@@ -25,6 +26,10 @@ function Dialogs ({dialogsPage, updateMessage, sendMessage}) {
     const onAddMessageClick = ()=>  {
       sendMessage()
     }
+
+   if (!isAuth) {
+    return <Redirect to="/login" />
+   }
 
   return (
     <div className="dialogs-page box">
