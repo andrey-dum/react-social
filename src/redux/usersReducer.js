@@ -1,3 +1,5 @@
+import { userAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -50,12 +52,6 @@ const usersReducer = (state=initialState, action) => {
                     return u;
                 })
             }
-
-        //   case DELETE:
-        //     return {
-        //         ...state,
-        //         users: [...state.users.filter(u => u.id !== action.payload)]
-        //   }
 
           case SET_USERS:
             return {
@@ -143,14 +139,50 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     }
 );
 
-// export const deleteUserctionCreator = (id) => ({ 
-//     type: DELETE,
-//     payload: id
-// }
-// );
     
-      
-      
+export const getUsersThunkCreator = (currentPage, pageSize) =>  {
+        return (dispatch) => {
+
+            dispatch(toggleIsFetching(true));
+            // dispatch(setCurrentPage(currentPage));
+
+            userAPI.getUsers(currentPage, pageSize).then(data => {
+                dispatch(setUsers(data.items));
+                dispatch(toggleIsFetching(false));
+                dispatch(setTotalUsersCount(data.totalCount));
+              })
+        }
+    };
+
+
+ export const followThunkCreator = (userId) =>  {
+        return (dispatch) => {
+
+            dispatch(toggleFollowingProgress(true, userId));
+            userAPI.onfollow(userId)
+                .then(response => {
+                    if (response.data.resultCode === 0) {
+                        dispatch(follow(userId));
+                    }
+                dispatch(toggleFollowingProgress(false, userId))
+        })
+    }
+};
+
+export const unfollowThunkCreator = (userId) =>  {
+    return (dispatch) => {
+
+        dispatch(toggleFollowingProgress(true, userId));
+        userAPI.onunfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollow(userId));
+                }
+            dispatch(toggleFollowingProgress(false, userId))
+        })
+    }
+};
+
   
 export default usersReducer;
 

@@ -65,13 +65,6 @@ function Users(props) {
                 )}
               </div>
 
-              {/* <div className="user__location">
-                            <MdPublic />
-                            <div> 
-                                <div>{u.location.country}</div>
-                                <div>{u.location.city}</div>
-                            </div>
-                        </div> */}
             </div>
           ))}
        
