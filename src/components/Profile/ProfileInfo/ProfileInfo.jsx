@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileStatus from './ProfileStatus';
 
 //import './index.scss';
 
@@ -22,7 +23,8 @@ const ProfileInfo = ({profile}) => {
                 </div>
                 <div className="profile-info">
                     <h2 className="profile-name">{profile.fullName}</h2>
-                    <div>{profile.aboutMe}</div>
+                    <ProfileStatus status={profile.aboutMe} />
+                    {/* <div>{profile.aboutMe}</div> */}
                     {/* <div>web-development, design, branding, 3d-visualization</div> */}
                     <div>{profile.lookingForAJob}</div>
                     <div>{profile.lookingForAJobDescription}</div>
