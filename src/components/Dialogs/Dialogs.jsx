@@ -27,9 +27,9 @@ function Dialogs ({dialogsPage, updateMessage, sendMessage, isAuth}) {
       sendMessage()
     }
 
-   if (!isAuth) {
-    return <Redirect to="/login" />
-   }
+  //  if (!isAuth) {
+  //   return <Redirect to="/login" />
+  //  }
 
   return (
     <div className="dialogs-page box">
