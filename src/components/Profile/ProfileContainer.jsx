@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import * as axios from "axios";
 import Profile from './Profile';
-import { setUserProfile, getUserProfile } from '../../redux/profileReducer';
+import { setUserProfile, getUserProfile, getStatus, updateStatus } from '../../redux/profileReducer';
 
 // import { withRouter } from "react-router";
 
@@ -18,11 +18,12 @@ class ProfileContainer extends React.Component {
         //    this.props.setUserProfile(response.data)
         // })
         this.props.getUserProfile(userId);
+        this.props.getStatus(userId);
     }
 
     render () {
         return (
-            <Profile {...this.props} profile={this.props.profile} />
+            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
         )
     }
 }
@@ -32,6 +33,7 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = state => {
     return {
       profile: state.profilePage.profile,
+      status: state.profilePage.status,
     };
   };
 
@@ -45,5 +47,7 @@ const mapStateToProps = state => {
     // setUserProfile,
 
 
-    getUserProfile
+    getUserProfile,
+    getStatus,
+    updateStatus
   })(ProfileContainer);

@@ -4,7 +4,7 @@ import ProfileStatus from './ProfileStatus';
 //import './index.scss';
 
 
-const ProfileInfo = ({profile}) => {
+const ProfileInfo = ({profile, status, updateStatus}) => {
     if(!profile) {
         return <div><h1>Loading</h1></div>
     }
@@ -23,7 +23,7 @@ const ProfileInfo = ({profile}) => {
                 </div>
                 <div className="profile-info">
                     <h2 className="profile-name">{profile.fullName}</h2>
-                    <ProfileStatus status={profile.aboutMe} />
+                    <ProfileStatus status={status} updateStatus={updateStatus}/>
                     {/* <div>{profile.aboutMe}</div> */}
                     {/* <div>web-development, design, branding, 3d-visualization</div> */}
                     <div>{profile.lookingForAJob}</div>

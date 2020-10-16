@@ -14,27 +14,44 @@ import { RiEditLine } from "react-icons/ri";
 
 class ProfileStatus extends React.Component {
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
-    activateEditMode () {
+    activateEditMode = () => {
         this.setState({
             editMode: true
         })
+       
     }
-    deactivateEditMode () {
+    deactivateEditMode = () => {
         this.setState({
             editMode: false
         })
+        this.props.updateStatus(this.state.status)
+    }
+
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
+        })
+    }
+
+    componentDidUpdate (prevProps, prevState) {
+       if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+       }
     }
 
     render () {
         return (
             <div>
                 <div>
-                    { !this.state.editMode && <div >{this.props.status} <span onClick={this.activateEditMode.bind(this)}><RiEditLine /></span> </div> }
+                    { !this.state.editMode && <div >{this.props.status || '...'} <span onClick={this.activateEditMode}><RiEditLine /></span> </div> }
 
-                    { this.state.editMode && <div><input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} value={this.props.status} type="text" /></div> }
+                    { this.state.editMode && <div><input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status} type="text" /></div> }
                     
                 </div>
             </div>
