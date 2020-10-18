@@ -3,28 +3,19 @@ import React from 'react';
 
 import './index.scss';
 import { FaRegPaperPlane } from "react-icons/fa";
-import { Redirect } from "react-router-dom";
 
 import DialogItem from './DialogItem';
 import Message from './Message';
 // import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
+import { Field, reduxForm } from 'redux-form'
 
 
-
-function Dialogs ({dialogsPage, updateMessage, sendMessage, isAuth}) {
+function Dialogs ({dialogsPage, sendMessage, isAuth}) {
 
     const empty = true;
 
-    let isEmptyMessage = dialogsPage.NewMessageText === '' ? true : false
-
-    const onUpdateMessage = (e) =>  {
-      let msg = e.target.value;
-      updateMessage(msg)
-      console.log(msg)
-    }
-
-    const onAddMessageClick = ()=>  {
-      sendMessage()
+    const onAddMessage = (values)=>  {
+      sendMessage(values.newMessageText)
     }
 
   //  if (!isAuth) {
@@ -76,13 +67,7 @@ function Dialogs ({dialogsPage, updateMessage, sendMessage, isAuth}) {
 
               <hr/>
 
-              <div className="chat-textarea">
-              
-                <textarea onChange={ onUpdateMessage } value={dialogsPage.NewMessageText} required /> 
-                <div className="btn-wrap">
-                  <button className="button" disabled={isEmptyMessage} onClick={ onAddMessageClick } >Send</button>
-                 </div>
-              </div>
+              <AddMessageFormRedux onSubmit={onAddMessage} />
               
           </div>
 
@@ -91,5 +76,21 @@ function Dialogs ({dialogsPage, updateMessage, sendMessage, isAuth}) {
     </div>
   );
 }
+
+const AddMessageForm = (props) => {
+  const { handleSubmit } = props
+  return (
+    <div className="chat-textarea">
+      <form onSubmit={handleSubmit}>
+        <Field component="textarea" name="newMessageText" required /> 
+        <div className="btn-wrap">
+          <button className="button">Send</button>
+        </div>
+      </form>
+    </div>
+  )
+}
+
+const AddMessageFormRedux = reduxForm({form: 'AddMessageForm'})(AddMessageForm)
 
 export default Dialogs;
