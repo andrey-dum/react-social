@@ -1,9 +1,10 @@
 import React from 'react';
 import Post from './Post/Post';
-// import { addPostActionCreator, updateNewPostText } from '../../../redux/profileReducer';
 
 //import './index.scss';
 import { Field, reduxForm } from 'redux-form'
+import { Textarea } from '../../../common/FormControls/FormControls';
+import { required } from '../../../utils/validators/validator';
 
 
 function MyPosts ({posts, addPost}) {
@@ -35,7 +36,7 @@ const AddPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className="textarea-wrap">
-        <Field placeholder="Что у вас нового?" name="newPostText" component="textarea" />
+        <Field placeholder="Что у вас нового?" name="newPostText" component={Textarea} validate={[required]} />
        </div>
         <div className="btn-wrap">
           <button className="button">Опубликовать</button>

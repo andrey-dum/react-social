@@ -6,8 +6,9 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 import DialogItem from './DialogItem';
 import Message from './Message';
+import AddMessageFormRedux from './AddMessageForm/AddMessageForm';
 // import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
-import { Field, reduxForm } from 'redux-form'
+
 
 
 function Dialogs ({dialogsPage, sendMessage, isAuth}) {
@@ -77,20 +78,6 @@ function Dialogs ({dialogsPage, sendMessage, isAuth}) {
   );
 }
 
-const AddMessageForm = (props) => {
-  const { handleSubmit } = props
-  return (
-    <div className="chat-textarea">
-      <form onSubmit={handleSubmit}>
-        <Field component="textarea" name="newMessageText" required /> 
-        <div className="btn-wrap">
-          <button className="button">Send</button>
-        </div>
-      </form>
-    </div>
-  )
-}
 
-const AddMessageFormRedux = reduxForm({form: 'AddMessageForm'})(AddMessageForm)
 
 export default Dialogs;
