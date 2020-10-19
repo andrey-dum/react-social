@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header';
 import { connect } from 'react-redux'
 
-import { setAuthUserData, authMeTC } from '../../redux/authReducer';
+import { setAuthUserData, authMeTC, logout} from '../../redux/authReducer';
 // import { setUserProfile } from '../../redux/profileReducer';
 
 class HeaderContainer extends React.Component {
@@ -48,5 +48,6 @@ export default connect(mapStateToProps, {
   setAuthUserData,
   // setUserProfile,
 
-  authMeTC
+  authMeTC,
+  logout
 })(HeaderContainer);

@@ -19,7 +19,7 @@ export const Textarea = ({
     meta: { touched, error, warning }
   }) => {
     return (
-        <div className={touched && error && 'error'}>
+        <div className={error && 'error'}>
             <textarea {...input}  />
             {touched &&
                 ((error && <span>{error}</span>) ||
@@ -36,7 +36,7 @@ export const Input = ({
     meta: { touched, error, warning }
   }) => {
     return (
-        <div className={touched && error && 'error'}>
+        <div className={error && 'error'}>
             <input {...input} type={type} />
             {touched &&
                 ((error && <span>{error}</span>) ||

@@ -12,7 +12,7 @@ const AddMessageForm = (props) => {
     return (
       <div className="chat-textarea">
         <form onSubmit={handleSubmit}>
-          <Field component={Textarea} validate={[required, maxLength30]} name="newMessageText" required /> 
+          <Field component={Textarea} validate={[required, maxLength30]} name="newMessageText" /> 
           <div className="btn-wrap">
             <button className="button">Send</button>
           </div>

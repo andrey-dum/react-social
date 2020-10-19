@@ -9,7 +9,10 @@ import { MdFace } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 
 
-function Header ({login, isAuth, profile}) {
+function Header ({login, isAuth, profile, logout}) {
+  const handleLogout = () => {
+    logout()
+  }
   // console.log(profile)
   return (
     <div className="header box">
@@ -24,8 +27,8 @@ function Header ({login, isAuth, profile}) {
         </div>
         <div className="header-menu">
         { isAuth 
-          ? <a href="/"><MdFace />{login}</a>
-          : <a href="/"><MdFace />Sig In</a> }
+          ? <div><a href="#"><MdFace />{login}</a><div className="logout" onClick={handleLogout}><AiOutlineLogout />Logout</div></div>
+          : <a href="#"><MdFace />Sig In</a> }
           {/* <a href="/"><AiOutlineLogout />Logout</a> */}
          
         </div>
