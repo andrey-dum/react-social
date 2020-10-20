@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
-  toggleFollowingProgress,
+  // follow,
+  // unfollow,
+  // setUsers,
+  // setCurrentPage,
+  // setTotalUsersCount,
+  // toggleIsFetching,
+  // toggleFollowingProgress,
   getUsersThunkCreator,
   followThunkCreator,
   unfollowThunkCreator
@@ -40,8 +40,6 @@ class UsersContainer extends React.Component {
   };
 
   onPageChange = pageN => {
-    // this.props.setCurrentPage(pageN);
-
     this.props.getUsersThunkCreator(pageN, this.props.pageSize);
   };
 

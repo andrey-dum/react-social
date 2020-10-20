@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Profile from './Profile';
-import { setUserProfile, getUserProfile, getStatus, updateStatus } from '../../redux/profileReducer';
+import { getUserProfile, getStatus, updateStatus } from '../../redux/profileReducer';
 
 // import { withRouter } from "react-router";
 
@@ -16,9 +16,7 @@ class ProfileContainer extends React.Component {
             this.props.history.push('/login')
           }
         }
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(response => {
-        //    this.props.setUserProfile(response.data)
-        // })
+        
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
     }
