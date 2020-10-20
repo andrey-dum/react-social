@@ -3,30 +3,14 @@ import React from 'react';
 import Header from './Header';
 import { connect } from 'react-redux'
 
-import { setAuthUserData, authMeTC, logout} from '../../redux/authReducer';
+import { setAuthUserData, getAuthUserData, logout} from '../../redux/authReducer';
 // import { setUserProfile } from '../../redux/profileReducer';
 
 class HeaderContainer extends React.Component {
 
   componentDidMount () {
-    // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-    //   withCredentials: true
-    // }).then(response => {
-      
-    //   if(response.data.resultCode === 0) {
-    //     const { id, email, login } = response.data.data;
-    //     this.props.setAuthUserData(id, email, login);
-    //     console.log('Success', id)
-       
-    //   //   axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`).then(response => {
-    //   //     this.props.setUserProfile(response.data)
-    //   //  })
 
-    //   }
-
-    // })
-
-    this.props.authMeTC()
+    // this.props.getAuthUserData()
   }
   
   render () {
@@ -48,6 +32,6 @@ export default connect(mapStateToProps, {
   setAuthUserData,
   // setUserProfile,
 
-  authMeTC,
+  getAuthUserData,
   logout
 })(HeaderContainer);

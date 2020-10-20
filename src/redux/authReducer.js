@@ -51,8 +51,8 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 
 
 
-export const authMeTC = () => (dispatch) => {
-    authAPI.authMe().then(response => {
+export const getAuthUserData = () => (dispatch) => {
+    return authAPI.authMe().then(response => {
         if(response.data.resultCode === 0) {
           const { id, email, login } = response.data.data;
 
@@ -75,7 +75,7 @@ export const login = (email, password, rememberMe) => (dispatch) => {
     
     authAPI.login(email, password, rememberMe).then(response => {
         if(response.data.resultCode === 0) {
-          dispatch(authMeTC());
+          dispatch(getAuthUserData());
         } else {
             let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Something went wrong.';
             dispatch(stopSubmit("login", { _error: message }))
