@@ -21,9 +21,9 @@ const ProfileStatus= (props) => {
         setStatus(e.currentTarget.value)
     }
 
-    // useEffect(() => {
-    //     setStatus(props.status)
-    // }, []);
+    useEffect(() => {
+        setStatus(props.status)
+    }, [props.status]);
 
     return (
         <div>
