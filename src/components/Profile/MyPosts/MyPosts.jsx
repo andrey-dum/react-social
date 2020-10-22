@@ -7,7 +7,7 @@ import { Textarea } from '../../../common/FormControls/FormControls';
 import { required } from '../../../utils/validators/validator';
 
 
-function MyPosts ({posts, addPost}) {
+const MyPosts = React.memo(({posts, addPost}) => {
 
   
   const onAddPost = (formData) => {
@@ -30,7 +30,7 @@ function MyPosts ({posts, addPost}) {
          
     </div>
   );
-}
+})
 
 const AddPostForm = (props) => {
   return (
