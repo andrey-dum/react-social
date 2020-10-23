@@ -24,15 +24,16 @@ import { getUsers,
 
 class UsersContainer extends React.Component {
   componentDidMount() {
+    const { currentPage,pageSize } = this.props;
     this.props.getUsersThunkCreator(
-      this.props.currentPage,
-      this.props.pageSize
+      currentPage,
+      pageSize
     );
   }
 
   onFollow = userId => {
     this.props.followThunkCreator(userId);
-    console.log(this.props.followingInProgress);
+    console.log(this.props.followThunkCreator(userId))
   };
 
   onUnfollow = userId => {

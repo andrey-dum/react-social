@@ -17,7 +17,7 @@ export const userAPI = {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`) //add whtn have apikey { withCredentials: true }
             .then(response => response.data)
     },
-    onfollow (userId) {
+    onfollow: (userId) => {
         return instance.post(`follow/${userId}`)
     },
     onunfollow (userId) {

@@ -8,8 +8,6 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
     if(!profile) {
         return <div><h1>Loading</h1></div>
     }
-    
-
     return (
         <div className="profile__info-wrapper box">
           
@@ -24,14 +22,9 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
                 <div className="profile-info">
                     <h2 className="profile-name">{profile.fullName}</h2>
                     <ProfileStatus status={status} updateStatus={updateStatus}/>
-                    {/* <div>{profile.aboutMe}</div> */}
-                    {/* <div>web-development, design, branding, 3d-visualization</div> */}
                     <div>{profile.lookingForAJob}</div>
                     <div>{profile.lookingForAJobDescription}</div>
                     <div>{profile.contacts.instagram}</div>
-                    <div>Date: 20.08.1992</div>
-                    <div>City: Kyiv</div>
-                    <div>Website: site.com</div>
                 </div>
             </div>
         </div>   
