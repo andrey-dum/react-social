@@ -1,26 +1,39 @@
 import React from "react";
 
-function Paginator(props) {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+function Paginator({totalItemsCount, pageSize, onPageChange, currentPage, portionSize=20}) {
+  let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
   let pages = [];
 
-  // ' i <= pagesCount ' insert in for
-  for (let i = 1; i <= 10; i++) {
+  
+  for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
 
+  let portionCount = Math.ceil(pagesCount / portionSize);
+  let [portionNumber, setPortionNumber] = React.useState(1);
+  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+  let rightPortionPageNumber = portionNumber * portionSize;
+
   return (
       <div className="pagination">
-        {pages.map(p => (
-          <span
-            key={p}
-            onClick={() => props.onPageChange(p)}
-            className={props.currentPage === p ? "active" : ""}
-          >
-            {p}
-          </span>
+        {portionNumber > 1 && 
+        <button onClick={() => {setPortionNumber(portionNumber - 1)}}>PREV</button>}
+
+        {pages
+          .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+          .map((p) => (
+            <span
+              key={p}
+              onClick={() => onPageChange(p)}
+              className={currentPage === p ? "active" : ""}
+            >
+              {p}
+            </span>
         ))}
+
+        {portionCount > portionNumber && 
+        <button onClick={() => {setPortionNumber(portionNumber + 1)}}>NEXT</button>}
       </div>
   );
 }
