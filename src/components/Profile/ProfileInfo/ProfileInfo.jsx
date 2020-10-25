@@ -17,7 +17,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
 
             <div className="profile-meta">
                 <div className="profile-photo">
-                    <img src={profile.photos.large || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/grinning-face_1f600.png'} />
+                    <img src={profile.photos.large || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/grinning-face_1f600.png'} alt='avatar' />
                 </div>
                 <div className="profile-info">
                     <h2 className="profile-name">{profile.fullName}</h2>
