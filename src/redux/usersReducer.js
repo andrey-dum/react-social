@@ -159,7 +159,7 @@ export const getUsersThunkCreator = (currentPage, pageSize) =>  {
 
  export const followThunkCreator = (userId) =>  {
         return async (dispatch) => {
-
+            
             dispatch(toggleFollowingProgress(true, userId));
             let response = await userAPI.onfollow(userId);
             
@@ -167,6 +167,7 @@ export const getUsersThunkCreator = (currentPage, pageSize) =>  {
                 dispatch(follow(userId));
             }
             dispatch(toggleFollowingProgress(false, userId))
+            
       
     }
 };

@@ -29,11 +29,12 @@ class UsersContainer extends React.Component {
       currentPage,
       pageSize
     );
+    
   }
 
   onFollow = userId => {
     this.props.followThunkCreator(userId);
-    console.log(this.props.followThunkCreator(userId))
+    
   };
 
   onUnfollow = userId => {

@@ -15,12 +15,13 @@ import './index.scss';
 export const Textarea = ({
     input,
     label,
+    placeholder,
     type,
     meta: { touched, error, warning }
   }) => {
     return (
         <div className={error && 'error'}>
-            <textarea {...input}  />
+            <textarea {...input} placeholder={placeholder} />
             {touched &&
                 ((error && <span>{error}</span>) ||
                 (warning && <span>{warning}</span>))}
@@ -33,11 +34,12 @@ export const Input = ({
     input,
     label,
     type,
+    placeholder,
     meta: { touched, error, warning }
   }) => {
     return (
         <div className={error && 'error'}>
-            <input {...input} type={type} />
+            <input {...input} type={type} placeholder={placeholder} />
             {touched &&
                 ((error && <span>{error}</span>) ||
                 (warning && <span>{warning}</span>))}
