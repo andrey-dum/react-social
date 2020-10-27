@@ -15,14 +15,23 @@ import Login from './components/Login/Login';
 import { connect } from "react-redux";
 import { initializeApp } from './redux/appReducer';
 import LoadingScreen from './common/LoadingScreen';
-
+import { Redirect } from 'react-router-dom';
 
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
 
 class App extends React.Component {
 
+  catchAllErrors = (reason, promise) => {
+    alert("Some error")
+    //create d(thunk) -> {d(action.show) setTimeout d(hide)}  in app-reducer/ catch error and show in the page
+  }
+  
   componentDidMount () {
     this.props.initializeApp()
+    window.addEventListener("unhandledrejection", this.catchAllErrors)
+  }
+  componentWillUnmount () {
+    window.removeEventListener("unhandledrejection", this.catchAllErrors)
   }
 
   render () {
@@ -36,17 +45,19 @@ class App extends React.Component {
         <Sidebar />
         <div className="main-content">
           <Switch>
+            <Route exact path='/' component={() => <Redirect to="/profile" />} /> 
+
             <Route  path='/dialogs' render={ () => (<React.Suspense fallback={<LoadingScreen />}>
                 <DialogsContainer />
               </React.Suspense>
               ) } />
 
-            
               <Route path='/profile/:id?' component={ProfileContainer} /> 
-           
 
-            <Route path='/users' render={ () => <UsersContainer /> } />
-            <Route path='/login' component={Login} /> 
+              <Route path='/users' render={ () => <UsersContainer /> } />
+              <Route path='/login' component={Login} /> 
+
+              <Route path='*' render={ () => <div><h1>404 NOT FOUND</h1></div> } />
           </Switch>
         </div>
       
